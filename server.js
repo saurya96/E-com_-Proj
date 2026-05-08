@@ -22,6 +22,10 @@ const startServer = async () => {
     // Connect to MongoDB
     await connectDB();
 
+    app.get("/",(req,res){
+      res.send("API is Working")
+    })
+
     // Start Express Server
     const server = app.listen(PORT, () => {
       console.log('\n' + '='.repeat(60));
