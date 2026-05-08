@@ -22,9 +22,10 @@ const startServer = async () => {
     // Connect to MongoDB
     await connectDB();
 
-    app.get("/",(req,res){
-      res.send("API is Working")
-    })
+    // Home Route
+    app.get('/', (req, res) => {
+      res.send('API is Working 🚀');
+    });
 
     // Start Express Server
     const server = app.listen(PORT, () => {
@@ -41,7 +42,7 @@ const startServer = async () => {
      * Handle Graceful Shutdown
      */
     process.on('SIGTERM', () => {
-      console.log('\n⚠️  SIGTERM signal received: closing HTTP server');
+      console.log('\n⚠️ SIGTERM signal received: closing HTTP server');
       server.close(() => {
         console.log('✅ HTTP server closed');
         process.exit(0);
@@ -49,7 +50,7 @@ const startServer = async () => {
     });
 
     process.on('SIGINT', () => {
-      console.log('\n⚠️  SIGINT signal received: closing HTTP server');
+      console.log('\n⚠️ SIGINT signal received: closing HTTP server');
       server.close(() => {
         console.log('✅ HTTP server closed');
         process.exit(0);
